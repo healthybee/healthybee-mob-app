@@ -4,6 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="viewModel" type="com.app.healthybee.ui.login.LoginViewModel"/>
+        <variable name="isOTP" type="boolean"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -54,35 +55,6 @@
                 android:layout_marginBottom="@dimen/_16sdp"
                 app:layout_constraintBottom_toTopOf="@+id/edt_login_password"/>
 
-        <EditText
-                android:id="@+id/edt_login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_bg_transparent"
-                android:gravity="center"
-                android:hint="@string/password"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="textWebPassword"
-                android:maxLength="15"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                tools:targetApi="o"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="@dimen/_20sdp"
-                app:layout_constraintBottom_toTopOf="@+id/bt_password"/>
-
-
-        <TextView
-                android:id="@+id/tv_forgot_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forgot_password"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBaseline_toBaselineOf="@+id/bt_password"/>
 
         <Button
                 android:id="@+id/bt_password"
@@ -136,6 +108,33 @@
                 app:layout_constraintTop_toTopOf="@+id/or"
                 app:layout_constraintBottom_toBottomOf="@+id/or"/>
 
+        <EditText
+                android:id="@+id/edt_login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_bg_transparent"
+                android:gravity="center"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="textWebPassword"
+                android:maxLength="15"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                tools:targetApi="o"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/_20sdp"
+                app:layout_constraintBottom_toTopOf="@+id/bt_password"/>
+        <TextView
+                android:id="@+id/tv_forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgot_password"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@+id/bt_password"/>
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/or"
                 android:layout_width="wrap_content"
@@ -198,5 +197,11 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
+        <androidx.constraintlayout.widget.Group
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/group"
+                android:visibility="gone"
+                app:constraint_referenced_ids="edt_login_password,tv_forgot_password"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,8 +2,7 @@ package com.app.healthybee.data.remote.services
 
 import androidx.lifecycle.LiveData
 import com.app.healthybee.data.remote.response.AuthResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -12,7 +11,6 @@ import retrofit2.http.Query
  */
 interface ApiService {
 
-    @POST("apiService")
-    @FormUrlEncoded
-    fun authenticate(@Field("email") email: String, @Field("password") password: String,@Query("token")token:String) :LiveData<ApiResponse<AuthResponse>>
+    @POST("auth")
+    fun authenticate(@Header("Authorization") authorization: String,@Header("Content-Type") application :String, @Query("access_token")token:String) :LiveData<ApiResponse<AuthResponse>>
 }
